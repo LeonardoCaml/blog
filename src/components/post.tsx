@@ -2,6 +2,7 @@ import * as React from "react";
 import { Container } from "@mui/material";
 import styled from "styled-components";
 import { images } from "../constant/icon";
+import { useState } from "react";
 
 type props = {
   data: string;
@@ -10,9 +11,28 @@ type props = {
 };
 
 export const Post = ({ data, title, description }: props) => {
+  const [isEnable, setIsEnable] = useState(false);
+
+  function favorite() {
+    if (isEnable === false) {
+      setIsEnable(true);
+    } else if (isEnable === true) {
+      setIsEnable(false);
+    }
+  }
+
   return (
-    <Container maxWidth="md">
-      <PostCard>
+    <Container
+      sx={{
+        maxWidth: {
+          xs: "xs",
+          sm: "sm",
+          md: "md",
+          lg: "md",
+        },
+      }}
+    >
+      <PostCard className={isEnable ? "border-active" : "border"}>
         <div
           style={{
             display: "flex",
@@ -21,8 +41,18 @@ export const Post = ({ data, title, description }: props) => {
           }}
         >
           <DataText>{data}</DataText>
-          <Icon src={images.favorite} alt="favorite" $disable />
-          <Icon src={images.favoriteFill} alt="favorite" />
+          <Favorite
+            className={isEnable ? "disable" : ""}
+            onClick={favorite}
+            src={images.favorite}
+            alt="favorite"
+          />
+          <Favorite
+            className={isEnable ? "" : "disable"}
+            onClick={favorite}
+            src={images.favoriteFill}
+            alt="favorite fill"
+          />
         </div>
         <TitleText>{title}</TitleText>
         <DescriptionText>{description}</DescriptionText>
@@ -48,14 +78,13 @@ const DescriptionText = styled(DataText)`
   line-height: 1.5rem;
 `;
 
-const Icon = styled.img<{ $disable?: boolean }>`
-  display: ${(props) => (props.$disable ? "block" : "none")};
+const Favorite = styled.img`
   width: 20px;
 `;
 
 const PostCard = styled.div`
+  transition: 0.2s;
   background: #17171a;
-  border: 1px solid #252529;
   border-radius: 10px;
   padding: 25px;
 `;

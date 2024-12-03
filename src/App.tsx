@@ -64,6 +64,6 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
-`
+`;
 
 export default App;

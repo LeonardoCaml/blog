@@ -9,7 +9,16 @@ export const Header = () => {
         <Title>Code</Title>
         <Title $color>Lab</Title>
       </div>
-      <Container maxWidth="md">
+      <Container
+        sx={{
+          maxWidth: {
+            xs: "xs",
+            sm: "sm",
+            md: "md",
+            lg: "md",
+          },
+        }}
+      >
         <input placeholder="pesquisar no blog" id="input" />
       </Container>
     </AppBar>
@@ -17,7 +26,7 @@ export const Header = () => {
 };
 
 const AppBar = styled.div`
-  padding: 40px;
+  padding: 40px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
