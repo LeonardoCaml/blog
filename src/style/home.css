@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+#home {
+  background: #121214;
+  min-height: 100vh;
+  padding-bottom: 30px;
+}
+
+#input {
+  width: calc(100% - 20px);
+  height: 45px;
+  border-radius: 10px;
+  padding-left: 20px;
+  font-size: 1rem;
+  background: #252529;
+  border: 1px solid #252529;
+}
+
+#input::placeholder {
+  font-size: 1rem;
+}
+
