@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "allowJs": true,
     "jsx": "react",
     "target": "ES2019",
     "module": "CommonJS",
