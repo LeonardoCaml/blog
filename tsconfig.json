@@ -12,5 +12,5 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src", "custom.d.ts"]
+  "include": ["src/**/*", "custom.d.ts"]
 }
