@@ -42,7 +42,7 @@ const post = [
   },
 ];
 
-function App() {
+export function App() {
   return (
     <Wrapper id="home">
       <Header />
@@ -65,5 +65,3 @@ const Wrapper = styled.div`
   flex-direction: column;
   gap: 30px;
 `;
-
-export default App;
