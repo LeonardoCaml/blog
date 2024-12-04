@@ -42,7 +42,7 @@ const post = [
   },
 ];
 
-export function App() {
+export default function App() {
   return (
     <Wrapper id="home">
       <Header />
