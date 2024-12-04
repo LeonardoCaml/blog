@@ -4,7 +4,7 @@ import { Post } from "./components/post";
 import "./style/home.css";
 import styled from "styled-components";
 
-const post = [
+const postCard = [
   {
     id: 1,
     data: "17 de ago, 2024",
@@ -42,12 +42,12 @@ const post = [
   },
 ];
 
-export default function App() {
+export const App = () => {
   return (
     <Wrapper id="home">
       <Header />
       <Wrapper>
-        {post.map((item) => (
+        {postCard.map((item) => (
           <Post
             key={item.id}
             data={item.data}
