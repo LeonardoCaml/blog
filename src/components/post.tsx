@@ -62,7 +62,7 @@ export const Post = ({ data, title, description }: props) => {
 };
 
 const DataText = styled.p`
-  color: #e07b67;
+  color: #677CE0;
   font-size: 0.9rem;
   margin: 15px 0px;
 `;

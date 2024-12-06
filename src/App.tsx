@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Header } from "./components/header";
 import { Post } from "./components/post";
-import "./style/home.css";
 import styled from "styled-components";
+import "./style/home.css";
 
 const postCard = [
   {

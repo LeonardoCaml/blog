@@ -7,7 +7,9 @@ export const Header = () => {
     <AppBar>
       <div style={{ display: "flex", marginBottom: 40 }}>
         <Title>Code</Title>
-        <Title $color>Lab</Title>
+        <Title $color>
+          Learn
+        </Title>
       </div>
       <Container
         sx={{
@@ -35,6 +37,6 @@ const AppBar = styled.div`
 `;
 
 const Title = styled.h1<{ $color?: boolean }>`
-  color: ${(props) => (props.$color ? "#FFFFFF" : "#E07B67")};
+  color: ${(props) => (props.$color ? "#FFFFFF" : "#677CE0")};
   font-weight: 700;
 `;
