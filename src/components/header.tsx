@@ -1,8 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import CircleNotificationsIcon from "@mui/icons-material/CircleNotifications";
-import SettingsIcon from "@mui/icons-material/Settings";
+import { useState } from "react";
 
 const AccountEntry = () => {
   return (
@@ -17,7 +16,21 @@ const AccountEntry = () => {
   );
 };
 
+const AccountLogged = () => {
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+      <AccountCircleIcon sx={{ color: "#ffffff", fontSize: "2.5rem" }} />
+      <div style={{ color: "#ffffff", width: 150 }}>
+        <UserText>nome do usuário</UserText>
+        <PerfilText>perfil</PerfilText>
+      </div>
+    </div>
+  );
+};
+
 export const Header = () => {
+  const [IsLogged, setIsLogged] = useState(false);
+
   return (
     <AppBar>
       <div style={{ display: "flex" }}>
@@ -27,14 +40,7 @@ export const Header = () => {
       <Input>
         <input placeholder="pesquisar no blog" id="input" />
         <Divider />
-        {/* <div><AccountEntry /></div> */}
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <AccountCircleIcon sx={{ color: "#ffffff", fontSize: "2.5rem" }} />
-          <div style={{ color: "#ffffff", width: 160 }}>
-            <UserText>nome do usuário</UserText>
-            <PerfilText>perfil</PerfilText>
-          </div>
-        </div>
+        <div>{IsLogged ? <AccountLogged /> : <AccountEntry />}</div>
       </Input>
     </AppBar>
   );
@@ -62,7 +68,7 @@ const Divider = styled.div`
 `;
 
 const HeaderButton = styled.button`
-  width: 75px;
+  width: 90px;
   height: 45px;
   font-size: 1rem;
   color: #ffffff;
@@ -77,7 +83,7 @@ const Title = styled.h1<{ $color?: boolean }>`
 `;
 
 const UserText = styled.p`
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
 `;
 
