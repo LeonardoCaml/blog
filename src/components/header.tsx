@@ -16,7 +16,7 @@ export const Header = () => {
             <HeaderButton>sign in</HeaderButton>
           </a>
           <a href="#">
-            <HeaderButton>sign in</HeaderButton>
+            <HeaderButton>log in</HeaderButton>
           </a>
         </div>
       </Input>
@@ -46,9 +46,14 @@ const Divider = styled.div`
 `;
 
 const HeaderButton = styled.button`
-  width: 60px;
-  height: 30px;
-`
+  width: 75px;
+  height: 45px;
+  font-size: 1rem;
+  color: #ffffff;
+  background: none;
+  border: 1px solid #4b4950;
+  border-radius: 10px;
+`;
 
 const Title = styled.h1<{ $color?: boolean }>`
   color: ${(props) => (props.$color ? "#FFFFFF" : "#677CE0")};
