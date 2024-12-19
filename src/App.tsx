@@ -131,7 +131,7 @@ const SidebarLeft = styled.div`
   background: #17171a;
   color: #ffffff;
   height: 100vh;
-  min-height: fit-content;
+  max-height: 100vh;
   padding: 40px 20px;
   display: flex;
   flex-direction: column;
@@ -141,6 +141,7 @@ const SidebarLeft = styled.div`
 const SidebarRight = styled(SidebarLeft)`
   align-items: center;
   border-left: 1px solid #252529;
+  min-height: fit-content;
 `;
 
 const Divider = styled.div`
