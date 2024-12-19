@@ -125,10 +125,13 @@ const Body = styled.div`
 `;
 
 const SidebarLeft = styled.div`
+  position: sticky;
+  top: 0;
   border-right: 1px solid #4b4950;
   background: #17171a;
   color: #ffffff;
   height: 100vh;
+  min-height: fit-content;
   padding: 40px 20px;
   display: flex;
   flex-direction: column;
@@ -138,7 +141,6 @@ const SidebarLeft = styled.div`
 const SidebarRight = styled(SidebarLeft)`
   align-items: center;
   border-left: 1px solid #252529;
-  min-height: fit-content;
 `;
 
 const Divider = styled.div`
