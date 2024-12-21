@@ -54,6 +54,9 @@ const postCard = [
 ];
 
 const App = () => {
+
+  
+
   return (
     <Wrapper id="home">
       <Header />
@@ -66,6 +69,10 @@ const App = () => {
           <h1>Específicos</h1>
           <p>Frontend</p>
           <p>Backend</p>
+          <p>Mobile</p>
+          <p>Inteligência artificial</p>
+          <p>Análise e ciência de dados</p>
+          <p>Segurança da informação</p>
           <p>Infraestrutura</p>
           <p>DevOps</p>
           <p>UX/UI</p>
@@ -142,12 +149,6 @@ const SidebarRight = styled(SidebarLeft)`
   align-items: center;
   border-left: 1px solid #252529;
   min-height: fit-content;
-`;
-
-const Divider = styled.div`
-  width: "100%";
-  height: 2px;
-  background: #4b4950;
 `;
 
 export default App;

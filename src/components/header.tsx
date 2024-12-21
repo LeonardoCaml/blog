@@ -2,16 +2,53 @@ import * as React from "react";
 import styled from "styled-components";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useState } from "react";
+import { Dialog } from "@mui/material";
+import { Google } from "@mui/icons-material";
 
 const AccountEntry = () => {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <div style={{ display: "flex", gap: 10 }}>
       <a href="#">
         <HeaderButton>sign in</HeaderButton>
       </a>
       <a href="#">
-        <HeaderButton>log in</HeaderButton>
+        <HeaderButton onClick={handleClickOpen}>log in</HeaderButton>
       </a>
+
+      <Dialog maxWidth={"lg"} open={open} onClose={handleClose}>
+        <LoginContainer>
+          <LoginText>Bem-vindo de volta</LoginText>
+          <LoginTitle>Faça login na sua conta</LoginTitle>
+          <LoginText>Email</LoginText>
+          <LoginInput type="text" placeholder="insira seu email" />
+          <LoginText>Senha</LoginText>
+          <LoginInput type="text" placeholder="insira sua senha" />
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+              <input type="checkbox" name="" id="" />
+              <LoginText>Lembre de mim</LoginText>
+            </div>
+            <LoginLink>Esqueceu sua senha?</LoginLink>
+          </div>
+          <LoginButton>Entrar na conta</LoginButton>
+          <LoginButtonGoogle>
+            <Google />
+            Faça login com Google
+          </LoginButtonGoogle>
+          <LoginText>
+            Não tem uma conta? <LoginLink href="">Cadastre-se</LoginLink>
+          </LoginText>
+        </LoginContainer>
+      </Dialog>
     </div>
   );
 };
@@ -87,6 +124,68 @@ const UserText = styled.p`
   font-weight: 700;
 `;
 
-const PerfilText = styled.p`
+const PerfilText = styled(UserText)`
   font-size: 1rem;
+`;
+
+const LoginContainer = styled.div`
+  width: 350px;
+  height: 550px;
+  padding: 30px;
+  background: #121214;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  border-radius: 20px;
+`;
+
+const LoginTitle = styled(Title)`
+  color: #ffffff;
+  font-weight: 700;
+`;
+
+const LoginText = styled(PerfilText)`
+  color: white;
+`;
+
+const LoginInput = styled.input`
+  width: calc(100% - 20px);
+  height: 45px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  padding-left: 20px;
+  font-size: 1rem;
+  background: #252529;
+  border: 1px solid #4b4950;
+  color: #ffffff;
+`;
+
+const LoginLink = styled.a`
+  text-decoration: none;
+  color: #677ce0;
+  font-weight: 700;
+`;
+
+const LoginButton = styled.button`
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  background: #677ce8;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+`;
+
+const LoginButtonGoogle = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  background: #ffffff;
+  border: none;
+  border-radius: 10px;
 `;
