@@ -53,7 +53,7 @@ const postCard = [
   },
 ];
 
-const App = () => {
+const Home = () => {
   return (
     <Wrapper id="home">
       <Header />
@@ -148,4 +148,4 @@ const SidebarRight = styled(SidebarLeft)`
   min-height: fit-content;
 `;
 
-export default App;
+export default Home;
