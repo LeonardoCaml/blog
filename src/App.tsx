@@ -54,9 +54,6 @@ const postCard = [
 ];
 
 const App = () => {
-
-  
-
   return (
     <Wrapper id="home">
       <Header />
