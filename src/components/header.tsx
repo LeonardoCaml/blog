@@ -4,6 +4,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useState } from "react";
 import { Dialog } from "@mui/material";
 import { Google } from "@mui/icons-material";
+import { Link } from "react-router";
 
 const AccountEntry = () => {
   const [open, setOpen] = React.useState(false);
@@ -18,7 +19,9 @@ const AccountEntry = () => {
   return (
     <div style={{ display: "flex", gap: 10 }}>
       <a href="#">
-        <HeaderButton>sign up</HeaderButton>
+        <Link to="signup">
+          <HeaderButton>sign up</HeaderButton>
+        </Link>
       </a>
       <a href="#">
         <HeaderButton onClick={handleClickOpen}>sign in</HeaderButton>
