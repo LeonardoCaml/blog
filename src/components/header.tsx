@@ -18,10 +18,10 @@ const AccountEntry = () => {
   return (
     <div style={{ display: "flex", gap: 10 }}>
       <a href="#">
-        <HeaderButton>sign in</HeaderButton>
+        <HeaderButton>sign up</HeaderButton>
       </a>
       <a href="#">
-        <HeaderButton onClick={handleClickOpen}>log in</HeaderButton>
+        <HeaderButton onClick={handleClickOpen}>sign in</HeaderButton>
       </a>
 
       <Dialog
@@ -173,6 +173,7 @@ const LoginLink = styled.a`
   text-decoration: none;
   color: #677ce0;
   font-weight: 700;
+  cursor: pointer;
 `;
 
 const LoginButton = styled.button`
@@ -194,6 +195,7 @@ const LoginButtonGoogle = styled.button`
   font-size: 1rem;
   font-weight: 700;
   background: #ffffff;
+  color: #677ce8;
   border: none;
   border-radius: 10px;
 `;
