@@ -24,7 +24,15 @@ const AccountEntry = () => {
         <HeaderButton onClick={handleClickOpen}>log in</HeaderButton>
       </a>
 
-      <Dialog maxWidth={"lg"} open={open} onClose={handleClose}>
+      <Dialog
+        PaperProps={{
+          sx: {
+            background: "transparent",
+          },
+        }}
+        open={open}
+        onClose={handleClose}
+      >
         <LoginContainer>
           <LoginText>Bem-vindo de volta</LoginText>
           <LoginTitle>Faça login na sua conta</LoginTitle>
