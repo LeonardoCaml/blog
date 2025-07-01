@@ -1,6 +1,4 @@
 import * as React from "react";
-import { Container } from "@mui/material";
-import styled from "styled-components";
 import { images } from "../constant/icon";
 import { useState } from "react";
 
@@ -13,78 +11,37 @@ type props = {
 export const Post = ({ data, title, description }: props) => {
   const [isEnable, setIsEnable] = useState(false);
 
-  function favorite() {
-    if (isEnable === false) {
-      setIsEnable(true);
-    } else if (isEnable === true) {
-      setIsEnable(false);
-    }
-  }
+  const favorite = () => {
+    setIsEnable((prev) => !prev);
+  };
 
   return (
-    <Container
-      sx={{
-        maxWidth: {
-          xs: "xs",
-          sm: "sm",
-          md: "md",
-          lg: "md",
-        },
-      }}
-    >
-      <PostCard className={isEnable ? "border-active" : "border"}>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <DataText>{data}</DataText>
-          <Favorite
-            className={isEnable ? "disable" : ""}
+    <div className="w-[95%]">
+      <div
+        className={`transition bg-[#17171a] rounded-[10px] p-6 ${isEnable ? "border border-blue-500" : "border border-transparent"
+          }`}
+      >
+        <div className="flex items-center justify-between">
+          <p className="text-blue-500 text-sm my-3">{data}</p>
+
+          {/* Ícones de favorito (somente um visível por vez) */}
+          <img
             onClick={favorite}
             src={images.favorite}
             alt="favorite"
+            className={`w-5 cursor-pointer ${isEnable ? "hidden" : "block"}`}
           />
-          <Favorite
-            className={isEnable ? "" : "disable"}
+          <img
             onClick={favorite}
             src={images.favoriteFill}
             alt="favorite fill"
+            className={`w-5 cursor-pointer ${isEnable ? "block" : "hidden"}`}
           />
         </div>
-        <TitleText>{title}</TitleText>
-        <DescriptionText>{description}</DescriptionText>
-      </PostCard>
-    </Container>
+
+        <h2 className="text-white text-lg mb-2">{title}</h2>
+        <p className="text-[#afabb6] text-sm leading-relaxed">{description}</p>
+      </div>
+    </div>
   );
 };
-
-const DataText = styled.p`
-  color: #677CE0;
-  font-size: 0.9rem;
-  margin: 15px 0px;
-`;
-
-const TitleText = styled(DataText)`
-  color: #ffffff;
-  font-size: 1.2rem;
-`;
-
-const DescriptionText = styled(DataText)`
-  color: #afabb6;
-  font-size: 0.9rem;
-  line-height: 1.5rem;
-`;
-
-const Favorite = styled.img`
-  width: 20px;
-`;
-
-const PostCard = styled.div`
-  transition: 0.2s;
-  background: #17171a;
-  border-radius: 10px;
-  padding: 25px;
-`;

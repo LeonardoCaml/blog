@@ -1,8 +1,6 @@
 import * as React from "react";
 import { Header } from "./components/header";
 import { Post } from "./components/post";
-import styled from "styled-components";
-import "./style/home.css";
 import { PostInToplist } from "./components/postInToplist";
 
 const postCard = [
@@ -55,15 +53,18 @@ const postCard = [
 
 const Home = () => {
   return (
-    <Wrapper id="home">
+    <div className="flex flex-col home">
       <Header />
-      <Body>
-        <SidebarLeft>
-          <h1>Categorias</h1>
+
+      <div className="grid grid-cols-[1fr_3fr] text-white">
+        {/* Sidebar esquerda */}
+        <div className="sticky top-0 h-screen border-r border-[#4b4950] bg-[#17171a] p-10 flex flex-col gap-2">
+          <h1 className="text-lg font-bold mb-2">Categorias</h1>
           <p>Curiosidades</p>
           <p>Novidades</p>
           <p>Conhecimento</p>
-          <h1>Específicos</h1>
+
+          <h1 className="text-lg font-bold mt-6 mb-2">Específicos</h1>
           <p>Frontend</p>
           <p>Backend</p>
           <p>Mobile</p>
@@ -74,15 +75,10 @@ const Home = () => {
           <p>DevOps</p>
           <p>UX/UI</p>
           <p>QA</p>
-        </SidebarLeft>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 30,
-            margin: 20,
-          }}
-        >
+        </div>
+
+        {/* Conteúdo principal */}
+        <div className="flex flex-col gap-8 my-6 ml-6">
           {postCard.map((item) => (
             <Post
               key={item.id}
@@ -92,60 +88,9 @@ const Home = () => {
             />
           ))}
         </div>
-        <SidebarRight>
-          <h1>mais procurados</h1>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 10,
-            }}
-          >
-            {postCard.map((item) => (
-              <PostInToplist
-                key={item.id}
-                title={item.title}
-                data={item.data}
-                category={item.category}
-                specify={item.specify}
-              />
-            ))}
-          </div>
-        </SidebarRight>
-      </Body>
-    </Wrapper>
+      </div>
+    </div>
   );
 };
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const Body = styled.div`
-  display: grid;
-  grid-template-columns: 0.3fr 1fr 0.3fr;
-  gap: 30px;
-`;
-
-const SidebarLeft = styled.div`
-  position: sticky;
-  top: 0;
-  border-right: 1px solid #4b4950;
-  background: #17171a;
-  color: #ffffff;
-  height: 100vh;
-  max-height: 100vh;
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-`;
-
-const SidebarRight = styled(SidebarLeft)`
-  align-items: center;
-  border-left: 1px solid #252529;
-  min-height: fit-content;
-`;
 
 export default Home;

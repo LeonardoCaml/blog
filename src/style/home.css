@@ -1,10 +1,10 @@
+@import "tailwindcss";
+
 * {
-  margin: 0;
-  padding: 0;
   font-family: sans-serif;
 }
 
-#home {
+.home {
   background: #121214;
   min-height: 100vh;
 }

@@ -1,5 +1,4 @@
 import * as React from "react";
-import styled from "styled-components";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useState } from "react";
 import { Dialog } from "@mui/material";
@@ -16,16 +15,20 @@ const AccountEntry = () => {
   const handleClose = () => {
     setOpen(false);
   };
+
   return (
-    <div style={{ display: "flex", gap: 10 }}>
-      <a href="#">
-        <Link to="signup">
-          <HeaderButton>sign up</HeaderButton>
-        </Link>
-      </a>
-      <a href="#">
-        <HeaderButton onClick={handleClickOpen}>sign in</HeaderButton>
-      </a>
+    <div className="flex gap-2">
+      <Link to="signup">
+        <button className="w-[90px] h-[45px] text-white text-base border border-[#4b4950] rounded-[10px]">
+          sign up
+        </button>
+      </Link>
+      <button
+        onClick={handleClickOpen}
+        className="w-[90px] h-[45px] text-white text-base border border-[#4b4950] rounded-[10px]"
+      >
+        sign in
+      </button>
 
       <Dialog
         PaperProps={{
@@ -36,29 +39,43 @@ const AccountEntry = () => {
         open={open}
         onClose={handleClose}
       >
-        <LoginContainer>
-          <LoginText>Bem-vindo de volta</LoginText>
-          <LoginTitle>Faça login na sua conta</LoginTitle>
-          <LoginText>Email</LoginText>
-          <LoginInput type="text" placeholder="insira seu email" />
-          <LoginText>Senha</LoginText>
-          <LoginInput type="text" placeholder="insira sua senha" />
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-              <input type="checkbox" name="" id="" />
-              <LoginText>Lembre de mim</LoginText>
+        <div className="w-[350px] h-[550px] p-8 bg-[#121214] flex flex-col justify-center gap-4 rounded-[20px]">
+          <p className="text-white text-lg font-bold">Bem-vindo de volta</p>
+          <h1 className="text-white text-xl font-bold">Faça login na sua conta</h1>
+          <p className="text-white font-bold">Email</p>
+          <input
+            type="text"
+            placeholder="insira seu email"
+            className="w-full h-[45px] mb-1 rounded-[10px] px-5 text-white bg-[#252529] border border-[#4b4950]"
+          />
+          <p className="text-white font-bold">Senha</p>
+          <input
+            type="password"
+            placeholder="insira sua senha"
+            className="w-full h-[45px] mb-1 rounded-[10px] px-5 text-white bg-[#252529] border border-[#4b4950]"
+          />
+
+          <div className="flex justify-between items-center">
+            <div className="flex items-center gap-1.5">
+              <input type="checkbox" />
+              <p className="text-white font-bold text-sm">Lembre de mim</p>
             </div>
-            <LoginLink>Esqueceu sua senha?</LoginLink>
+            <a href="#" className="text-[#677ce0] font-bold text-sm cursor-pointer">Esqueceu sua senha?</a>
           </div>
-          <LoginButton>Entrar na conta</LoginButton>
-          <LoginButtonGoogle>
+
+          <button className="p-2 text-white font-bold text-base bg-[#677ce8] rounded-[10px]">
+            Entrar na conta
+          </button>
+          <button className="p-2 text-[#677ce8] bg-white font-bold text-base flex items-center justify-center gap-2 rounded-[10px]">
             <Google />
             Faça login com Google
-          </LoginButtonGoogle>
-          <LoginText>
-            Não tem uma conta? <LoginLink href="">Cadastre-se</LoginLink>
-          </LoginText>
-        </LoginContainer>
+          </button>
+
+          <p className="text-white text-sm">
+            Não tem uma conta?{" "}
+            <a href="#" className="text-[#677ce0] font-bold">Cadastre-se</a>
+          </p>
+        </div>
       </Dialog>
     </div>
   );
@@ -66,11 +83,10 @@ const AccountEntry = () => {
 
 const AccountLogged = () => {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-      <AccountCircleIcon sx={{ color: "#ffffff", fontSize: "2.5rem" }} />
-      <div style={{ color: "#ffffff", width: 150 }}>
-        <UserText>nome do usuário</UserText>
-        <PerfilText>perfil</PerfilText>
+    <div className="flex items-center gap-2.5">
+      <AccountCircleIcon sx={{ color: "#ffffff", fontSize: "2rem" }} />
+      <div className="text-white w-[150px]">
+        <p className="text-base font-bold">nome do usuário</p>
       </div>
     </div>
   );
@@ -80,125 +96,21 @@ export const Header = () => {
   const [IsLogged, setIsLogged] = useState(false);
 
   return (
-    <AppBar>
-      <div style={{ display: "flex" }}>
-        <Title>Code</Title>
-        <Title $color>Learner</Title>
+    <div className="flex justify-between items-center bg-[#202024] px-10 py-5">
+      <div className="flex">
+        <h1 className="text-[#677CE0] font-bold text-xl">Code</h1>
+        <h1 className="text-white font-bold text-xl ml-1">Learner</h1>
       </div>
-      <Input>
-        <input placeholder="pesquisar no blog" id="input" />
-        <Divider />
+
+      <div className="flex items-center gap-2 w-[600px]">
+        <input
+          id="input"
+          placeholder="pesquisar no blog"
+          className="flex-grow p-2 rounded-md bg-[#252529] border border-[#4b4950] text-white"
+        />
+        <div className="h-[30px] w-px bg-[#4b4950]" />
         <div>{IsLogged ? <AccountLogged /> : <AccountEntry />}</div>
-      </Input>
-    </AppBar>
+      </div>
+    </div>
   );
 };
-
-const AppBar = styled.div`
-  display: flex;
-  padding: 20px 40px;
-  align-items: center;
-  justify-content: space-between;
-  background: #202024;
-`;
-
-const Input = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 600px;
-`;
-
-const Divider = styled.div`
-  height: 30px;
-  width: 1px;
-  background: #4b4950;
-`;
-
-const HeaderButton = styled.button`
-  width: 90px;
-  height: 45px;
-  font-size: 1rem;
-  color: #ffffff;
-  background: none;
-  border: 1px solid #4b4950;
-  border-radius: 10px;
-`;
-
-const Title = styled.h1<{ $color?: boolean }>`
-  color: ${(props) => (props.$color ? "#FFFFFF" : "#677CE0")};
-  font-weight: 700;
-`;
-
-const UserText = styled.p`
-  font-size: 1rem;
-  font-weight: 700;
-`;
-
-const PerfilText = styled(UserText)`
-  font-size: 1rem;
-`;
-
-const LoginContainer = styled.div`
-  width: 350px;
-  height: 550px;
-  padding: 30px;
-  background: #121214;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 15px;
-  border-radius: 20px;
-`;
-
-const LoginTitle = styled(Title)`
-  color: #ffffff;
-  font-weight: 700;
-`;
-
-const LoginText = styled(PerfilText)`
-  color: white;
-`;
-
-const LoginInput = styled.input`
-  width: calc(100% - 20px);
-  height: 45px;
-  margin-bottom: 5px;
-  border-radius: 10px;
-  padding-left: 20px;
-  font-size: 1rem;
-  background: #252529;
-  border: 1px solid #4b4950;
-  color: #ffffff;
-`;
-
-const LoginLink = styled.a`
-  text-decoration: none;
-  color: #677ce0;
-  font-weight: 700;
-  cursor: pointer;
-`;
-
-const LoginButton = styled.button`
-  padding: 10px;
-  font-size: 1rem;
-  font-weight: 700;
-  background: #677ce8;
-  color: #ffffff;
-  border: none;
-  border-radius: 10px;
-`;
-
-const LoginButtonGoogle = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px;
-  font-size: 1rem;
-  font-weight: 700;
-  background: #ffffff;
-  color: #677ce8;
-  border: none;
-  border-radius: 10px;
-`;
