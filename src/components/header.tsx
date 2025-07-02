@@ -31,16 +31,17 @@ const AccountEntry = () => {
       </button>
 
       <Dialog
-        PaperProps={{
-          sx: {
-            background: "transparent",
-          },
-        }}
+      PaperProps={
+        {
+          style: {
+            background: "transparent"
+          }
+        }
+      }
         open={open}
         onClose={handleClose}
       >
-        <div className="w-[350px] h-[550px] p-8 bg-[#121214] flex flex-col justify-center gap-4 rounded-[20px]">
-          <p className="text-white text-lg font-bold">Bem-vindo de volta</p>
+        <div className="w-[350px] h-[550px] p-8 bg-[#121214] border-1 border-[#252529] flex flex-col justify-center gap-2 rounded-[20px]">
           <h1 className="text-white text-xl font-bold">Faça login na sua conta</h1>
           <p className="text-white font-bold">Email</p>
           <input
@@ -55,15 +56,15 @@ const AccountEntry = () => {
             className="w-full h-[45px] mb-1 rounded-[10px] px-5 text-white bg-[#252529] border border-[#4b4950]"
           />
 
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-1.5">
+          <div className="flex justify-between items-center my-2">
+            <div className="flex items-center gap-1">
               <input type="checkbox" />
               <p className="text-white font-bold text-sm">Lembre de mim</p>
             </div>
             <a href="#" className="text-[#677ce0] font-bold text-sm cursor-pointer">Esqueceu sua senha?</a>
           </div>
 
-          <button className="p-2 text-white font-bold text-base bg-[#677ce8] rounded-[10px]">
+          <button className="p-2 text-white font-bold text-base bg-[#677ce8] rounded-[10px] mb-2">
             Entrar na conta
           </button>
           <button className="p-2 text-[#677ce8] bg-white font-bold text-base flex items-center justify-center gap-2 rounded-[10px]">

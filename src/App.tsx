@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Header } from "./components/header";
 import { Post } from "./components/post";
-import { PostInToplist } from "./components/postInToplist";
 
 const postCard = [
   {
@@ -51,6 +50,28 @@ const postCard = [
   },
 ];
 
+const sidebarItems = [
+  {
+    title: "Categorias",
+    items: ["Curiosidades", "Novidades", "Conhecimento"],
+  },
+  {
+    title: "Específicos",
+    items: [
+      "Frontend",
+      "Backend",
+      "Mobile",
+      "Inteligência artificial",
+      "Análise e ciência de dados",
+      "Segurança da informação",
+      "Infraestrutura",
+      "DevOps",
+      "UX/UI",
+      "QA",
+    ],
+  },
+];
+
 const Home = () => {
   return (
     <div className="flex flex-col home">
@@ -59,22 +80,14 @@ const Home = () => {
       <div className="grid grid-cols-[1fr_3fr] text-white">
         {/* Sidebar esquerda */}
         <div className="sticky top-0 h-screen border-r border-[#4b4950] bg-[#17171a] p-10 flex flex-col gap-2">
-          <h1 className="text-lg font-bold mb-2">Categorias</h1>
-          <p>Curiosidades</p>
-          <p>Novidades</p>
-          <p>Conhecimento</p>
-
-          <h1 className="text-lg font-bold mt-6 mb-2">Específicos</h1>
-          <p>Frontend</p>
-          <p>Backend</p>
-          <p>Mobile</p>
-          <p>Inteligência artificial</p>
-          <p>Análise e ciência de dados</p>
-          <p>Segurança da informação</p>
-          <p>Infraestrutura</p>
-          <p>DevOps</p>
-          <p>UX/UI</p>
-          <p>QA</p>
+          {sidebarItems.map((section, idx) => (
+            <div key={idx} className={idx !== 0 ? "mt-6" : ""}>
+              <h1 className="text-lg font-bold mb-2">{section.title}</h1>
+              {section.items.map((item, index) => (
+                <p key={index} className="ml-2">{item}</p>
+              ))}
+            </div>
+          ))}
         </div>
 
         {/* Conteúdo principal */}
