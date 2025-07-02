@@ -1,5 +1,6 @@
 import * as React from "react";
 import { images } from "../constant/icon";
+import { Person } from "@mui/icons-material"
 import { useState } from "react";
 
 type props = {
@@ -22,7 +23,17 @@ export const Post = ({ data, title, description }: props) => {
           }`}
       >
         <div className="flex items-center justify-between">
-          <p className="text-blue-500 text-sm my-3">{data}</p>
+          <div>
+            <div className="flex items-center gap-2">
+              <div className="bg-gray-800 rounded-full p-2 w-10 h-10 flex items-center justify-center">
+                <Person />
+              </div>
+              <div>
+                <p className="text-white text-sm">Nome do usuário • {data}</p>
+                <p className="text-gray-500 text-xs">@nickname</p>
+              </div>
+            </div>
+          </div>
 
           {/* Ícones de favorito (somente um visível por vez) */}
           <img
@@ -39,7 +50,7 @@ export const Post = ({ data, title, description }: props) => {
           />
         </div>
 
-        <h2 className="text-white text-lg mb-2">{title}</h2>
+        <h2 className="text-white text-lg mt-4">{title}</h2>
         <p className="text-[#afabb6] text-sm leading-relaxed">{description}</p>
       </div>
     </div>
