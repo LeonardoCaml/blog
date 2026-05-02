@@ -1,58 +1,69 @@
 import * as React from "react";
-import { images } from "../constant/icon";
-import { Person } from "@mui/icons-material"
-import { useState } from "react";
+import { Link } from "react-router";
+import { Visibility } from "@mui/icons-material";
 
-type props = {
-  data: string;
+type PostCardProps = {
+  slug: string;
   title: string;
-  description: string;
+  excerpt: string;
+  category: string;
+  reading_time: string;
+  published_at: string;
+  author: string;
 };
 
-export const Post = ({ data, title, description }: props) => {
-  const [isEnable, setIsEnable] = useState(false);
-
-  const favorite = () => {
-    setIsEnable((prev) => !prev);
-  };
+export const Post = ({
+  slug,
+  title,
+  excerpt,
+  category,
+  reading_time,
+  published_at,
+  author,
+}: PostCardProps) => {
+  const formattedDate = new Date(published_at).toLocaleDateString("pt-BR", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
 
   return (
-    <div className="w-[95%]">
-      <div
-        className={`transition bg-[#17171a] rounded-[10px] p-6 ${isEnable ? "border border-blue-500" : "border border-transparent"
-          }`}
-      >
-        <div className="flex items-center justify-between">
-          <div>
-            <div className="flex items-center gap-2">
-              <div className="bg-gray-800 rounded-full p-2 w-10 h-10 flex items-center justify-center">
-                <Person />
-              </div>
-              <div>
-                <p className="text-white text-sm">Nome do usuário • {data}</p>
-                <p className="text-gray-500 text-xs">@nickname</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Ícones de favorito (somente um visível por vez) */}
-          <img
-            onClick={favorite}
-            src={images.favorite}
-            alt="favorite"
-            className={`w-5 cursor-pointer ${isEnable ? "hidden" : "block"}`}
-          />
-          <img
-            onClick={favorite}
-            src={images.favoriteFill}
-            alt="favorite fill"
-            className={`w-5 cursor-pointer ${isEnable ? "block" : "hidden"}`}
-          />
-        </div>
-
-        <h2 className="text-white text-lg mt-4">{title}</h2>
-        <p className="text-[#afabb6] text-sm leading-relaxed">{description}</p>
+    <Link
+      className="bg-[#17171a] rounded-xl p-6 border border-[#252529] hover:border-[#677ce030] transition flex flex-col gap-3 hover:scale-102 ease-in-out"
+      to={`/blog/${slug}`}
+    >
+      <div className="flex items-center gap-2">
+        <span className="text-xs font-semibold px-2 py-0.5 rounded-md bg-[#677ce01a] text-[#677ce0]">
+          {category}
+        </span>
+        <span className="text-[#4b4950] text-xs">•</span>
+        <span className="text-[#afabb6] text-xs">
+          {reading_time} de leitura
+        </span>
       </div>
-    </div>
+
+      <Link to={`/blog/${slug}`}>
+        <h2 className="text-white font-bold text-base leading-snug hover:text-[#677ce0] transition">
+          {title}
+        </h2>
+      </Link>
+
+      <p className="text-[#afabb6] text-sm leading-relaxed line-clamp-2">
+        {excerpt}
+      </p>
+
+      <div className="flex items-center justify-between mt-1">
+        <div className="flex items-center gap-2">
+          <div className="w-6 h-6 rounded-full bg-[#677ce01a] flex items-center justify-center">
+            <span className="text-[#677ce0] text-[10px] font-bold">
+              {author.charAt(0)}
+            </span>
+          </div>
+          <span className="text-[#afabb6] text-xs">{author}</span>
+          <span className="text-[#4b4950] text-xs">•</span>
+          <span className="text-[#afabb6] text-xs">{formattedDate}</span>
+        </div>
+      </div>
+    </Link>
   );
 };
