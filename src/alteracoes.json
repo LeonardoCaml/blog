@@ -1,0 +1,217 @@
+{
+  "project_analysis": {
+    "summary": {
+      "main_issue": "O site aparenta ser um template genérico em vez de um produto real.",
+      "key_problems": [
+        "Conteúdo duplicado e genérico",
+        "Falta de hierarquia visual clara",
+        "Ausência de posicionamento definido",
+        "Mistura de diferentes tipos de conteúdo sem organização",
+        "Baixa credibilidade percebida"
+      ]
+    }
+  },
+  "diagnosis": {
+    "positioning": {
+      "problem": "O site não comunica claramente para quem é ou qual valor entrega.",
+      "impact": "Dificulta retenção e recorrência de usuários.",
+      "recommendation": "Definir um foco específico (iniciante, avançado, carreira, projetos práticos)."
+    },
+    "visual_hierarchy": {
+      "problem": "Todas as seções têm o mesmo peso visual.",
+      "impact": "Usuário não sabe onde focar.",
+      "recommendation": "Priorizar conteúdo com destaque progressivo (hero > featured > listas)."
+    },
+    "content_quality": {
+      "problem": "Posts repetidos e títulos genéricos.",
+      "impact": "Reduz autoridade e confiança.",
+      "recommendation": "Criar conteúdo único com títulos específicos e orientados a valor."
+    },
+    "information_architecture": {
+      "problem": "Falta de categorização e navegação eficiente.",
+      "impact": "Dificulta exploração e escalabilidade.",
+      "recommendation": "Implementar categorias, filtros e páginas dedicadas."
+    },
+    "content_structure": {
+      "problem": "Mistura de blog, podcast e playlists.",
+      "impact": "Confusão cognitiva.",
+      "recommendation": "Separar por rotas distintas (/blog, /podcast, /resources)."
+    },
+    "credibility": {
+      "problem": "Falta de autor, datas e contexto.",
+      "impact": "Site parece demo.",
+      "recommendation": "Adicionar autor, bio, datas e metadados."
+    }
+  },
+  "homepage_restructure": {
+    "sections": [
+      {
+        "type": "hero",
+        "elements": [
+          "headline clara",
+          "subheadline com proposta de valor",
+          "CTA principal"
+        ]
+      },
+      {
+        "type": "featured_post",
+        "elements": [
+          "1 post em destaque",
+          "imagem grande",
+          "descrição resumida"
+        ]
+      },
+      {
+        "type": "categories",
+        "elements": [
+          "lista de categorias principais",
+          "links para páginas específicas"
+        ]
+      },
+      {
+        "type": "latest_posts",
+        "elements": [
+          "lista de posts recentes",
+          "cards padronizados"
+        ]
+      },
+      {
+        "type": "series_or_roadmaps",
+        "elements": [
+          "conteúdo estruturado",
+          "guias progressivos"
+        ]
+      },
+      {
+        "type": "newsletter",
+        "elements": [
+          "formulário de inscrição",
+          "call to action"
+        ]
+      },
+      {
+        "type": "podcast_optional",
+        "elements": [
+          "listagem separada",
+          "link para seção dedicada"
+        ]
+      }
+    ],
+    "remove_sections": [
+      "mais_populares_sem_dados_reais"
+    ]
+  },
+  "post_card_spec": {
+    "fields": [
+      "title",
+      "description",
+      "category",
+      "reading_time",
+      "published_date"
+    ],
+    "example": {
+      "category": "React",
+      "title": "Como usar Server Components no Next.js",
+      "description": "Aprenda quando usar SSR vs RSC com exemplos práticos",
+      "reading_time": "8 min",
+      "published_date": "2026-01-01"
+    }
+  },
+  "content_system": {
+    "entities": {
+      "post": [
+        "id",
+        "slug",
+        "title",
+        "content",
+        "excerpt",
+        "category",
+        "tags",
+        "author",
+        "published_at",
+        "reading_time"
+      ],
+      "category": [
+        "id",
+        "slug",
+        "name",
+        "description"
+      ],
+      "series": [
+        "id",
+        "title",
+        "description",
+        "posts_ordered"
+      ]
+    },
+    "routes": [
+      "/blog",
+      "/blog/[slug]",
+      "/category/[slug]",
+      "/series/[slug]",
+      "/podcast",
+      "/resources"
+    ]
+  },
+  "content_strategy": {
+    "types": [
+      "artigos",
+      "guias",
+      "roadmaps",
+      "podcast",
+      "recursos"
+    ],
+    "structured_content_examples": [
+      "Aprenda React do zero",
+      "Roadmap Frontend",
+      "Guia completo de JavaScript"
+    ]
+  },
+  "copy_improvements": {
+    "bad_example": "Realidade virtual: Entendendo a tecnologia",
+    "good_example": "Realidade Virtual na prática: como funciona e onde já está sendo usada",
+    "rules": [
+      "evitar títulos genéricos",
+      "focar em benefício prático",
+      "usar linguagem específica",
+      "indicar resultado claro"
+    ]
+  },
+  "ux_improvements": {
+    "features": [
+      "lazy_loading",
+      "skeleton_loading",
+      "pagination_ou_infinite_scroll",
+      "remover_posts_duplicados"
+    ]
+  },
+  "technical_recommendations": {
+    "framework": "Next.js",
+    "strategies": [
+      "SSG (Static Site Generation)",
+      "ISR (Incremental Static Regeneration)"
+    ],
+    "optimizations": [
+      "uso de next/image",
+      "cache eficiente",
+      "separação de dados e UI"
+    ]
+  },
+  "quick_wins": [
+    "remover conteúdo fake",
+    "criar hero com proposta clara",
+    "melhorar títulos",
+    "implementar categorias",
+    "separar tipos de conteúdo",
+    "criar um conteúdo âncora forte"
+  ],
+  "opportunity": {
+    "current_state": "UI pronta, estratégia inexistente",
+    "target_state": "produto real com valor e escalabilidade",
+    "potential": [
+      "portfólio forte",
+      "plataforma de conteúdo",
+      "base para SaaS"
+    ]
+  }
+}
