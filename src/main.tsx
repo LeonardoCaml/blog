@@ -7,6 +7,7 @@ import SignUp from "./pages/Singup";
 import Blog from "./pages/Blog";
 import Category from "./pages/Category";
 import Login from "./pages/Login";
+import Article from "./pages/Article";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -16,6 +17,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="signup" element={<SignUp />} />
         <Route path="login" element={<Login />} />
         <Route path="blog" element={<Blog />} />
+        <Route path="blog/:slug" element={<Article />} />
         <Route path="category/:slug" element={<Category />} />
       </Routes>
     </BrowserRouter>

@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import RssFeedIcon from "@mui/icons-material/RssFeed";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 const links = {
   conteudo: [
@@ -25,10 +25,26 @@ const links = {
 };
 
 const socials = [
-  { label: "GitHub", href: "https://github.com", icon: <GitHubIcon fontSize="small" /> },
-  { label: "Twitter", href: "https://twitter.com", icon: <TwitterIcon fontSize="small" /> },
-  { label: "LinkedIn", href: "https://linkedin.com", icon: <LinkedInIcon fontSize="small" /> },
-  { label: "RSS", href: "/rss.xml", icon: <RssFeedIcon fontSize="small" /> },
+  {
+    label: "GitHub",
+    href: "https://github.com",
+    icon: <GitHubIcon fontSize="small" />,
+  },
+  {
+    label: "Twitter",
+    href: "https://twitter.com",
+    icon: <TwitterIcon fontSize="small" />,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://linkedin.com",
+    icon: <LinkedInIcon fontSize="small" />,
+  },
+  {
+    label: "Instagram",
+    href: "https://instagram.com",
+    icon: <InstagramIcon fontSize="small" />,
+  },
 ];
 
 export const Footer = () => {
@@ -47,7 +63,8 @@ export const Footer = () => {
               </h2>
             </Link>
             <p className="text-[#afabb6] text-sm leading-relaxed">
-              Artigos, guias e roadmaps para quem quer evoluir como desenvolvedor.
+              Artigos, guias e roadmaps para quem quer evoluir como
+              desenvolvedor.
             </p>
             <div className="flex gap-2 mt-1">
               {socials.map((s) => (
